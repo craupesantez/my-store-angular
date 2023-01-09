@@ -1,22 +1,34 @@
 import { Component } from '@angular/core';
-
+import { Product } from './product.model';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  widthImg = 10;
   name = 'Cesar';
   age = 18;
   img = 'https://www.w3schools.com/howto/img_avatar.png';
   btnDisabled = true;
   names: string[] = ['cesar', 'carlos', 'mireya'];
   newName = '';
-  products = [
+  register = {
+    name: '',
+    email:'',
+    password: '',
+  }
+  box= {
+    width: 100,
+    height: 100,
+    background: 'red'
+  }
+  products : Product[]= [
     {
       name: 'el mejor juguete',
       price: 565,
-      image: './assets/images/toy.jpg'
+      image: './assets/images/toy.jpg',
+      category:'all'
     },
     {
       name: 'Bicicleta casi nueva',
@@ -64,5 +76,8 @@ export class AppComponent {
   }
   deleteName(index: number){
     this.names.splice(index, 1);
+  }
+  onRegister(){
+    console.log(this.register);
   }
 }
